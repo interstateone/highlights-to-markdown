@@ -7,12 +7,17 @@
 struct Highlight {
     let pageIndex: Int
     let text: String
+    let note: String?
 
     var markdown: String {
-        return """
-               > \(text)
-               – Page \(pageIndex + 1)
-               """
+        return [
+            """
+            > \(text)
+            – Page \(pageIndex + 1)
+            """,
+            note
+        ].compactMap { $0 }
+         .joined(separator: "\n\n")
     }
 }
 
@@ -29,7 +34,8 @@ let highlights = pdf.pages.enumerated().flatMap { pageIndex, page in
                                .map { $0.insetBy(dx: -1, dy: -1) }
                                .compactMap { page.selection(for: $0)?.string }
                                .joined()
-                               .trimmingCharacters(in: .whitespacesAndNewlines))
+                               .trimmingCharacters(in: .whitespacesAndNewlines),
+                         note: annotation.popup?.contents)
     }
 }
 
