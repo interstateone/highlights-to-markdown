@@ -25,7 +25,7 @@ let url = URL(fileURLWithPath: CommandLine.arguments[1])
 let pdf = PDFDocument(url: url)!
 
 let highlights = pdf.pages.enumerated().flatMap { pageIndex, page in
-    return page.highlights.map { annotation -> Highlight in
+    return page.highlights.sorted(by: topLeftMost).map { annotation -> Highlight in
         return Highlight(pageIndex: pageIndex, 
                          text: (annotation.quadrilateralPoints ?? [])
                                .map { annotation.bounds.origin + $0.point }

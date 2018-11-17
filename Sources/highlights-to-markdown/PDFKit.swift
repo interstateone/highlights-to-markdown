@@ -22,3 +22,7 @@ extension PDFPage {
         return annotations.filter { $0.type == "Highlight" }
     }
 }
+
+func topLeftMost(_ first: PDFAnnotation, _ second: PDFAnnotation) -> Bool {
+    return first.bounds.origin.x < second.bounds.origin.x || first.bounds.origin.y > second.bounds.origin.y
+} 
