@@ -32,6 +32,18 @@ h2m $PDF_PATH
 
 ## Installation
 
+### Homebrew
+
+`brew install interstateone/formulae/highlights-to-markdown`
+
+### Manually
+
+```sh
+git clone https://github.com/interstateone/highlights-to-markdown.git
+cd highlights-to-markdown
+make install
+```
+
 ```sh
 swift build -c release
 cp `swift build -c release --show-bin-path`/h2m $DESTINATION
