@@ -1,10 +1,10 @@
 # highlights-to-markdown
 
-![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg) ![Supported Platforms: macOS, iOS, watchOS, tvOS](https://img.shields.io/badge/platform-macOS%20%7C%20iOS%20%7C%20watchOS%20%7C%20tvOS-lightgrey.svg)
+![Swift 5.1](https://img.shields.io/badge/swift-5.1-orange.svg) ![Supported Platforms: macOS](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
 
 Extracts highlight annotations from a PDF file and prints them as Markdown quotes.
 
-The implementation is cross-platform but the `h2m` executable is macOS-only for obvious reasons.
+The implementation is cross-platform but the `h2m` executable is macOS-only.
 
 ## Usage
 

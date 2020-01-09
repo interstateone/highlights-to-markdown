@@ -1,9 +1,10 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.1
 
 import PackageDescription
 
 let package = Package(
     name: "highlights-to-markdown",
+    platforms: [.macOS(.v10_10)],
     products: [
         .executable(name: "h2m", targets: ["highlights-to-markdown"])
     ],
@@ -11,7 +12,8 @@ let package = Package(
     targets: [
         .target(
             name: "highlights-to-markdown",
-            dependencies: [])
+            dependencies: [],
+            linkerSettings: [.linkedFramework("PDFKit")])
     ],
-    swiftLanguageVersions: [.v4_2]
+    swiftLanguageVersions: [.v5]
 )

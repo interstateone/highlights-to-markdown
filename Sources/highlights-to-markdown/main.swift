@@ -1,8 +1,4 @@
-#if canImport(PDFKit)
-    import PDFKit
-#elseif canImport(Quartz)
-    import Quartz.PDFKit
-#endif
+import PDFKit
 
 struct Highlight {
     let pageIndex: Int
