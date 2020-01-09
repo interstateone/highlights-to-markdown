@@ -17,8 +17,20 @@ struct Highlight {
     }
 }
 
+guard CommandLine.arguments.count == 2 else {
+    print("Usage: h2m path-to-document.pdf")
+    exit(1)
+}
+
 let url = URL(fileURLWithPath: CommandLine.arguments[1])
-let pdf = PDFDocument(url: url)!
+
+guard
+    FileManager.default.fileExists(atPath: url.path),
+    let pdf = PDFDocument(url: url)
+else {
+    print("Valid PDF not found at path \(url.path)")
+    exit(1)
+}
 
 let highlights = pdf.pages.enumerated().flatMap { pageIndex, page in
     return page.highlights.sorted(by: topLeftMost).map { annotation -> Highlight in
